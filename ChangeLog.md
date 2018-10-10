@@ -1,4 +1,4 @@
-# Revision history for wsterm
+# Revision history for wshterm
 
 ## 0.1.0.0  -- YYYY-mm-dd
 

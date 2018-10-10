@@ -8,7 +8,7 @@ let
       , process, stdenv, websockets, wai-websockets
       }:
       mkDerivation {
-        pname = "wsterm";
+        pname = "wshterm";
         version = "0.1.0.0";
         src = ./.;
         isLibrary = false;

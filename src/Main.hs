@@ -53,6 +53,7 @@ instance WebSocketsData InMessage where
 application :: String -> [String] -> ServerApp
 application prog args pending = do
     conn <- acceptRequest pending
+    forkPingThread conn 30
     bracket
         (spawnWithPty Nothing True prog args (80, 80))
         (\(pty,ph) -> closePty pty >> terminateProcess ph)
