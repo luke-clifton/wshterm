@@ -15,3 +15,12 @@ emulator for the browser. Communication is done via websockets.
 It currently does not support SSL, it is currently expected that if you
 need SSL, you will put it behind a reverse proxy such as NGINX.
 
+It currently does not drop priveleges. Don't run it as `root`. Use the
+provided `ssh_local` script if you want to authenticate.
+
+## Usage
+
+Simply run as the user you want to run as, and specify a command to be
+executed.
+
+    sudo -u nobody wshterm ./ssh_local

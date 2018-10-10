@@ -17,7 +17,7 @@ function setupHterm() {
 
   t.onTerminalReady = function() {
     const io = t.io.push();
-    io.print("Connecting...");
+    io.print("Connecting...\n\r");
     t.setCursorVisible(true);
     var sock = new WebSocket(host);
 

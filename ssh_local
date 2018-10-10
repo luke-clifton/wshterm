@@ -1,0 +1,5 @@
+#! /usr/bin/env sh
+
+read -p "username: " -r USERNAME
+
+exec ssh -o UserKnownHostsFile=/dev/null -o CheckHostIP=no -o StrictHostKeyChecking=no -o PubkeyAuthentication=no -o NoHostAuthenticationForLocalhost=yes $USERNAME@127.0.0.1
