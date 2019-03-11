@@ -1,3 +1,5 @@
 /dist/
+/dist-newstyle/
 /result
+/.ghc.environment.*
 *.sw[po]
