@@ -1,5 +1,5 @@
 name:                wshterm
-version:             0.1.0.0
+version:             0.1.0.1
 synopsis:            Terminal emulator over websockets.
 description:         wshterm wraps google's hterm library and allows you to run
                      terminal applications in a browser.
@@ -12,12 +12,17 @@ category:            Web
 build-type:          Simple
 extra-source-files:
     ChangeLog.md,
+    README.md,
     hterm_license,
     static/hterm_all.js,
     static/index.html,
     static/wshterm.js
 
 cabal-version:       >=1.10
+
+source-repository head
+  type: git
+  location: https://github.com/luke-clifton/wshterm
 
 executable wshterm
   main-is:             Main.hs
