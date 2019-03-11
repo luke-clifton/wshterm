@@ -14,6 +14,7 @@ import Data.FileEmbed
 import Network.Wai.Handler.WebSockets
 import Network.WebSockets
 import System.Environment
+import System.Exit
 import System.Posix.Pty
 import System.Process (ProcessHandle, terminateProcess)
 import Network.Wai.Application.Static
@@ -29,11 +30,22 @@ staticServe = staticApp $ embeddedSettings staticContent
 serve :: String -> [String] -> Application
 serve prog args = websocketsOr defaultConnectionOptions (application prog args) staticServe
 
+usage :: IO ()
+usage = Prelude.putStrLn "usage: wshterm [-p PORT | --] command [args..]"
+
 main :: IO ()
 main = do
-    (prog:args) <- getArgs
-    run 8899 $ serve prog args
-    -- runServer "127.0.0.1" 8898 $ application prog args
+    args <- getArgs
+    case args of
+        [] -> usage >> exitFailure
+        (first:rest) -> do
+            let
+                (port, prog:args) = case first of
+                    "-p" -> let (p:command) = rest in (read p, command)
+                    "--" -> (8899, rest)
+                    _    -> (8899, first : rest)
+            Prelude.putStrLn $ "Listening on port " ++ show port
+            run port $ serve prog args
 
 data InMessage
     = Input ByteString
