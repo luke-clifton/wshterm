@@ -23,4 +23,8 @@ provided `ssh_local` script if you want to authenticate.
 Simply run as the user you want to run as, and specify a command to be
 executed.
 
+    # Run a GHCi session on port 8080
+    wshterm -p 8080 ghci
+
+    # Allow logging in as any user
     sudo -u nobody wshterm ./ssh_local
