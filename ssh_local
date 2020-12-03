@@ -1,4 +1,4 @@
-#! /usr/bin/env sh
+#! /bin/sh
 
 read -p "username: " -r USERNAME
 
